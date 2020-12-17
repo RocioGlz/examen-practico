@@ -16,18 +16,18 @@ app.get('/', function (req, res) {
   res.send('<h1> Bienvenito a mi proyecto integrador SERVIDOR REST</h1>');
 });
 
-app.use(require('./routers/departamento'));
-app.use(require('./routers/empleado'));
-app.use(require('./routers/usuario'));
+//app.use(require('./routers/departamento'));
+//app.use(require('./routers/empleado'));
+//app.use(require('./routers/usuario'));
 
-mongoose.connect('', {
+mongoose.connect('mongodb://localhost:27017/examen', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useCreateIndex: true
-}, (err, res)=> {
-    if(err) throw error;
-    console.log('base de datos ONLINE');
+}, (err, res) => {
+    if (err) throw err;
+    console.log('Base de datos ONLINE');
 });
 
 app.listen(process.env.PORT, () => {
