@@ -11,14 +11,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
- 
+
 app.get('/', function (req, res) {
   res.send('<h1> Bienvenito a mi proyecto integrador SERVIDOR REST</h1>');
 });
 
-//app.use(require('./routers/departamento'));
-//app.use(require('./routers/empleado'));
-//app.use(require('./routers/usuario'));
+app.use(require('./routes/usuario'));
 
 mongoose.connect('mongodb://localhost:27017/examen', {
     useNewUrlParser: true,
